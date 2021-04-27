@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset=utf-8/>
-	<title>Lab 1. Introduction to HTML5 and HLS</title>
+    <meta charset=utf-8/>
+    <title>Lab 1. Introduction to HTML5 and HLS</title>
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
 
-	<!--
+    <!--
     Embed needed js libraries for video player. Note, libraries needs to be hosted on your server, under /js folder.
      -->
-	<!--
+    <!--
     Location for CSS if needed. Note, cascade style sheets needs to be hosted on your server, under /css folder.
     -->
 
 </head>
 <body>
-<h1>My first HLS player</h1>
+<div class="video-div">
+<h1>My first VideoJS player</h1>
 
 <video
-		id="video-player"
-		class="video-js"
-		controls
-		preload="auto"
-		data-setup="{}"
+        id="video-player"
+        class="video-js vjs-default-skin vjs-big-play-centered"
+        controls
+        preload="auto"
+        data-setup='{"example_option":true}'
+        poster="https://upload.wikimedia.org/wikipedia/commons/7/70/Big.Buck.Bunny.-.Opening.Screen.png"
 
 >
-	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"/>
-	<p class="vjs-no-js">
-		To view this video please enable JavaScript, and consider upgrading to a
-		web browser that
-		<a href="https://videojs.com/html5-video-support/" target="_blank"
-		>supports HTML5 video</a
-		>
-	</p>
+    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"/>
+    <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+        >
+    </p>
 </video>
+</div>
 
+<script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
 </body>
 </html>
