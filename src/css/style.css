@@ -1,0 +1,12 @@
+body {
+    color: #eee;
+    background: #121212;
+}
+
+.video-div {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
