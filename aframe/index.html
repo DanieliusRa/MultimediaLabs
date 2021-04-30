@@ -1,40 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Lab2 - VR application</title>
-    <meta name="description" content="Basic example for Point Cloud component."></meta>
-    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <meta name="description" content="Basic example for Point Cloud component."/>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
     <script src="js/aframe-pointcloud-component.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-assets>
-        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
-      </a-assets>
+    <script src="js/actions.js"></script>
+</head>
+<body>
+<a-scene>
+    <a-entity environment="preset: osiris"></a-entity>
 
-      <a-plane src="#groundTexture" rotation="-90 0 0" height="100" width="100"></a-plane>
-      <a-light type="ambient" color="#445451"></a-light>
-      <a-light type="point" intensity="2" position="2 4 4"></a-light>
-      <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky>
-      <a-entity laser-controls line="color: red; opacity: 0.75"></a-entity>
-      <a-pointcloud 
-        scale="0.1 0.1 0.1" 
-        position="0 0.08 -2.5" 
-        rotation="-90 45 0" 
-        src="url(sculpt.ply)" 
-        size="0.01">
-      </a-pointcloud>
-      <a-pointcloud 
-        scale="0.5 0.5 0.5" 
-        position="1.5 2 0.5" 
-        src="url(Sphere.ply)" 
-        size="0.05"
-        texture="url(VGTU-logo.png)"
-        depthWrite="false">
-      </a-pointcloud>
+    <a-pointcloud
+            id="sculpture"
+            scale="0.1 0.1 0.1"
+            position="0 0.08 -2.5"
+            rotation="-90 45 0"
+            src="url(sculpt.ply)"
+            size="0.01">
+    </a-pointcloud>
+    <a-pointcloud
+            id="vgtu-sphere"
+            scale="0.5 0.5 0.5"
+            position="1.5 2 0.5"
+            src="url(Sphere.ply)"
+            size="0.05"
+            texture="url(VGTU-logo.png)"
+            depthWrite="false">
+    </a-pointcloud>
 
-    </a-scene>
-  </body>
+
+    <a-gui-flex-container flex-direction="row" justify-content="center" align-items="normal" component-padding="0.1"
+                          opacity="0.7" width="1" height="0.75" position="-6 1 -6" rotation="0 45 0"
+                          font-family="Roboto">
+        <a-gui-button width="1" height="0.75" onclick="toggleModelOn()" value="Enable"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="toggleModelOff()" value="Disable"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="rotateL()" value="Rotate Left"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="rotateR()" value="Rotate Right"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="leftF()" value="Move Left"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="rightF()" value="Move Right"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="upF()" value="Move Up"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="downF()" value="Move Down"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="enlarge()" value="Enlarge by 25%"
+                      margin="0 0 0 0">
+        </a-gui-button>
+        <a-gui-button width="1" height="0.75" onclick="shrink()" value="Shrink by 25%"
+                      margin="0 0 0 0">
+        </a-gui-button>
+
+
+    </a-gui-flex-container>
+
+    <a-entity id="cameraRig" position="0 1.6 0">
+        <a-camera look-controls wasd-controls position="0 0 0">
+            <a-gui-cursor id="cursor" raycaster="objects: [gui-interactable]" fuse="false" design="reticle">
+            </a-gui-cursor>
+        </a-camera>
+    </a-entity>
+</a-scene>
+</body>
 </html>
