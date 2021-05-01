@@ -1,9 +1,9 @@
 # MSLab4
 
-This lab aims to build your first WebRTC app.
+-Implemented face detection via tracking.js
+-Added 3 filters: hue-rotate, contrast, saturate
 
-There are many open source alternatives to build a simple communication application like Skype. One of the web based solution is WebRTC. You can try a huge set of examples: 
-https://webrtc.github.io/samples/
+**Tested on Chrome, Safari, MS Edge. MacOS 11.3 Big Sur**
 
 # Requirements for repository
   - You have to clone this repository and make two branches (master and develop).
