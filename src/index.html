@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC + tracking.js">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+    <base target="_blank">
+
+    <title>Multimedia Lab 4: WebRTC + tracking.js API</title>
+
+    <script src="./build/tracking-min.js"></script>
+    <script src="./build/data/face-min.js"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="js/main.js" async></script>
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <style>
+        .none {
+            -webkit-filter: none;
+            filter: none;
+        }
+
+        .blur {
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+        }
+
+        .grayscale {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }
+
+        .invert {
+            -webkit-filter: invert(1);
+            filter: invert(1);
+        }
+
+        .sepia {
+            -webkit-filter: sepia(1);
+            filter: sepia(1);
+        }
+
+        .saturate {
+            -webkit-filter: saturate(5);
+            filter: saturate(5);
+        }
+
+        .huerotate {
+            -webkit-filter: hue-rotate(180deg);
+            filter: hue-rotate(180deg);
+        }
+
+        .contrast {
+            -webkit-filter: contrast(200%);
+            filter: contrast(200%);
+        }
+
+        button #snapshot {
+            margin: 0 10px 25px 0;
+            width: 110px;
+        }
+
+        video, canvas {
+            margin-left: 230px;
+            margin-top: 120px;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+<div id="container">
+    <h1><span>WebRTC + tracking.js</span></h1>
+    <video id="video" width="480" height="360" preload autoplay loop muted></video>
+    <canvas id="canvas" width="480" height="360"></canvas>
+    <div class="textWrapper">
+
+
+        <label for="filter">Filter: </label>
+        <select id="filter">
+            <option value="none">None</option>
+            <option value="blur">Blur</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="invert">Invert</option>
+            <option value="sepia">Sepia</option>
+            <option value="saturate">Saturate</option>
+            <option value="huerotate">Hue-rotate</option>
+            <option value="contrast">Contrast</option>
+        </select>
+
+        <button id="snapshot">Take a snapshot</button>
+
+        <canvas id="snap" style="margin-top: 500px !important; margin-left: -15px !important;"></canvas>
+    </div>
+</div>
+</body>
+</html>
