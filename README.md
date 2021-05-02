@@ -1,12 +1,11 @@
-# mediaLab5
+# Lab5
 
-This lab aims to build video streaming app based on WebRTC framework.
+- Implemented WebRTC video chat powered by Cloud Firestore
+- Local server runs via Firebase CLI (Hosted on Google Firebase)
 
-Some good examples:
-https://www.scaledrone.com/blog/webrtc-tutorial-simple-video-chat/
+Tested on Google Chrome, Safari, Microsoft Edge
 
-
-# Place all laboratory on the github.io.
+# Place all laboratory on the GitHub.io.
   - ROOT folder should contain 5 folders (lab1, lab2, lab3, lab4 & lab5) and index.html.
   - index.html should have links to each folder.
   - Each folder should be prepared to load solution.
