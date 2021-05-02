@@ -9,7 +9,7 @@ const configuration = {
       ],
     },
   ],
-  iceCandidatePoolSize: 10,
+  iceCandidatePoolSize: 2,
 };
 
 let peerConnection = null;
